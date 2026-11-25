@@ -1,6 +1,6 @@
 ---
 name: manager
-description: Turn this session into the project's manager - it plans and tracks the roadmap, starts a separate session for each item, guides and talks with those sessions while they work, and closes them when they finish. Use when the user runs /manager.
+description: Turn this session into the project's manager - it plans and tracks the roadmap, starts a separate session for each item, guides and talks with those sessions while they work, and closes them when they finish. Use when the user runs /hagbi:manager.
 disable-model-invocation: true
 ---
 

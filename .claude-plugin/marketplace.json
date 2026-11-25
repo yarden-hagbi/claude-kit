@@ -2,6 +2,7 @@
   "name": "hagbi",
   "owner": { "name": "yarden-hagbi" },
   "plugins": [
+    { "name": "hagbi", "source": "./skills", "skills": "./", "description": "Yarden Hagbi's Claude Code skills" },
     { "name": "rtl-claude-desktop", "source": "./mods/rtl-claude-desktop" },
     { "name": "gh-whoami", "source": "./mods/gh-whoami" }
   ]
