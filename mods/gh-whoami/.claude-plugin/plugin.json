@@ -1,5 +1,4 @@
 {
   "name": "gh-whoami",
-  "version": "0.1.0",
   "description": "Shows the GitHub account gh is on and the git identity for the current folder, in the status line."
 }
