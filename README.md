@@ -38,6 +38,7 @@ Work-related skills and third-party skills do not belong here.
 
 - `manager`: turns a session into the project's manager, which plans the roadmap and runs a separate session for each item.
 - `eli10`: explains a topic, link, file or piece of code as a visual page for a smart 10-year-old, with plain words, real examples and how it actually works.
+- `stack-preferences`: how I like to build software and what I usually use, one file per area. Claude works from it, and says when something else fits better.
 
 ## Mods
 
