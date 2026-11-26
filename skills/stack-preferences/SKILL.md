@@ -25,34 +25,19 @@ It does not override what is already there. In a project whose stack is already 
 
 | File | Covers |
 |---|---|
-| `references/backend.md` | NestJS structure, Postgres + Drizzle, MongoDB + Mongoose, zod, config, better-auth, error format, API shape, oRPC |
-| `references/frontend.md` | React + Vite, routing, TanStack Query, nuqs, forms, tables, Tailwind + shadcn, folder structure, mobile-first web, i18n and the Hebrew/RTL bundle |
-| `references/monorepo-and-tooling.md` | pnpm + Turborepo layout, `packages/contracts`, TypeScript config, Biome, local dev |
-| `references/deployment-and-ci.md` | Railway topology, Caddy, the traps, `.railway/railway.ts`, CI/CD with GitHub Actions |
-| `references/observability.md` | The day-one baseline, then Sentry, uptime and OpenTelemetry, and when each one enters |
-| `references/testing.md` | Vitest, Playwright, what gets tested, tests that touch the database |
-| `references/ai-engineering.md` | Nothing decided yet |
-| `references/mobile.md` | Native and mobile apps. Nothing decided yet |
-| `references/ways-of-working-and-git.md` | Git workflow, GitHub repo settings |
-
-## Cross-cutting rules
-
-These span more than one area, so they apply even without opening a file. Each one is explained in the file named next to it.
-
-- One source of truth: an enum, type or schema is defined once and derived everywhere. Write the `as const` tuple first, then derive zod and `pgEnum` from it. (`monorepo-and-tooling.md`)
-- One origin: web and API on the same domain, so no CORS and a first-party cookie. (`frontend.md`, `deployment-and-ci.md`)
-- `strict: true` and `noUncheckedIndexedAccess`. (`monorepo-and-tooling.md`)
-- Migrations from committed files, reviewed in the PR and run pre-deploy. Never `push`. (`backend.md`)
-- `timestamptz` only. `snake_case` in Postgres, `camelCase` in TS. (`backend.md`)
-- PATCH: absent means don't touch, explicit `null` means clear. (`backend.md`)
-- Errors carry a `code` that is the i18n key, an English `message` for developers that is never shown to users, and the HTTP status in the body. With oRPC, use its own shape. (`backend.md`)
-- A zod env schema that throws at boot, so a missing env var fails the deploy. (`backend.md`)
-- Self-signup off in anything internal. A global auth guard, with `@Public()` for the exceptions. (`backend.md`)
+| [backend.md](references/backend.md) | Server framework, databases, validation, config, auth, API layer and shape |
+| [frontend.md](references/frontend.md) | Web framework, routing, data fetching, state, forms, tables, styling, i18n and RTL |
+| [monorepo-and-tooling.md](references/monorepo-and-tooling.md) | Repo layout, package manager, shared packages, TypeScript config, lint and format, local dev |
+| [deployment-and-ci.md](references/deployment-and-ci.md) | Hosting, infrastructure as code, CI/CD |
+| [observability.md](references/observability.md) | Logging, error tracking, uptime, tracing |
+| [testing.md](references/testing.md) | Test tools, what gets tested and how |
+| [ai-engineering.md](references/ai-engineering.md) | Models, SDKs, agent loops, prompts, evals |
+| [mobile.md](references/mobile.md) | Native and mobile apps |
+| [ways-of-working-and-git.md](references/ways-of-working-and-git.md) | Git workflow, PRs, repo settings |
 
 ## Adding an area or a preference
 
 This skill lives in the user's claude-kit repo and is installed as a plugin, so the installed copy is overwritten on update. Change it in the repo, through a PR.
 
-- A new preference goes in its area's file, in the shape already there: the choice, one line on why it beat the alternative, and when to deviate from it. A choice with no stated trigger for reconsidering it is one nobody can safely question later.
-- A rule that spans areas also gets one line under "Cross-cutting rules".
+- A new preference goes in its area's file: the choice, one line on why it beat the alternative, and when to deviate from it. A choice with no stated trigger for reconsidering it is one nobody can safely question later.
 - A new area gets its own file under `references/` and a row in the table above.
